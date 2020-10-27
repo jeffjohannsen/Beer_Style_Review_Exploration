@@ -42,12 +42,17 @@
 * README and Project Smoothing/Finalization - 1/2 Day
 
 ## Monday Goals
-* README Draft 1 - Questions to Answer - Introduction
-* Explore BeerAdvocate Data
-* Get 1 API Up and Running
-* Get 1 Webscrape Up and Running
-* Collect Data from above into MongoDB and/or Postgres
+* README Draft 1 - Questions to Answer - Introduction - **0%**
+* Explore BeerAdvocate Data -  **50%**
+* Get 1 API Up and Running - **60%**
+* Get 1 Webscrape Up and Running - **90%**
+* Collect Data from above into MongoDB and/or Postgres - **25%**
 
+## Tuesday Goals
+* Question 2 Beginning to End - MVP complete
+    * EDA, Cleaning, Organizing
+    * Plotting
+    * README
 
 
 ![Title Image]()
