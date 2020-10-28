@@ -50,8 +50,19 @@
 
 ## Tuesday Goals
 * Question 2 Beginning to End - MVP complete
-    * EDA, Cleaning, Organizing
+    * EDA, Cleaning, Organizing - **90%**
+    * Plotting - **90%**
+    * Hypothesis Test **95%**
+    * README **0%**
+
+## Wednesday Goals
+* Before Noon
+    * Determine Feasibility of MVP+ (API, Scraping Data)
+    * EDA, Cleaning, Data Combined and Mismatched Data Dealt With
+* After Noon
     * Plotting
+    * Hypothesis Test if necessary  
+    **and/or**
     * README
 
 
