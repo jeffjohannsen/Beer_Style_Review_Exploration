@@ -70,6 +70,8 @@ did you pass them over.
 
 ## Data Pipeline and Storage
 
+The original data set was not organized efficiently to evaluate the data in the way I wanted to. The data was also stored multiple subsets of features in the same records which led to overcomplication when querying for specific subsets of the data. I ended up restructurung the data and storing it in multiple related SQL tables for easy querying. The restructurung and storage process has also been encapsulated into a pipeline for easy use in the event that I need to add more data of a similar original structure.
+
 # Answering Questions with the Data
 
 **Specific Questions**
