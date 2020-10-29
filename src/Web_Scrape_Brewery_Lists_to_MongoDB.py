@@ -1,3 +1,6 @@
+# Should be fully working
+# TODO: Create Docstring
+
 import warnings
 warnings.filterwarnings('ignore')
 from pymongo import MongoClient
@@ -11,6 +14,12 @@ from bs4 import BeautifulSoup
 
 
 def scrape_brewery_lists(states_to_scrape, collection_to_save_in):
+    """[summary]
+
+    Args:
+        states_to_scrape ([type]): [description]
+        collection_to_save_in ([type]): [description]
+    """
     client = MongoClient('localhost', 27017)
 
     states = states_to_scrape
