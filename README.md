@@ -27,6 +27,10 @@ While the majority of of beer sold in the US comes from a few companies (Anheuse
 
 I moved to Colorado in 2016 and part of my motivation to call Colorado my new home was the prevalence of the craft beer industry in this state. I love exploring new breweries and trying new beer styles. The community feel to most local breweries really drew me in. While exploring various breweries throughout the state I realized that certain styles of beer like IPA's, Pilsners, and basic Lagers were extremely popular options while others like some of my favorites; Bocks, Amber/Brown Ales and darker styles like Porters and Stouts were less common. The motivation for my research was to see if my annecdotal experience of seeing IPAs as the most popular style matched up with the data. I also wanted to see if a beer style being popular also meant that it was highly rated or if these traits were not correlated. For example, the most popular beer style in america is probably adjunct lager (Bud Light, Budweiser, Coors, etc.) but I doubt these would show up as the highest rated or highest quality. Digging deeper I wanted to better understand the nuances of rating systems in general using craft beer reviews as a working model.
 
+### Central Questions:
+### 1. IPAs are in my experience the most popular style of craft beer. Does the data support my personal experience?
+### 2. Does being the most popular beer style indicate that IPAs are also the highest quality?
+
 Beyond my personal interests and motivations, knowing how popular and how highly rated certain beer styles are, is a requirement for any well managed brewery or beer industry business. Having the right combination of beer styles in a brewery portfolio is one of the best ways to ensure that people keep coming back and buying more beer!
 
 ## The Data
