@@ -90,7 +90,7 @@ The **Review Count** grouped by the style of beer is used as an indicator of **P
 ## Question 2:
 ## Does being the most popular beer style indicate that IPAs are also the highest quality?
 
-**Visual Evidence** 
+## Visual Evidence 
 
 ### Top 10 Highest Rated Beer Styles
 * Data limited to styles with a minimum of 10000 reviews which left ~50% of all styles.
@@ -108,7 +108,7 @@ The **Mean Overall Rating** grouped by the style of beer is used as an indicator
 
 <br/><br/>
 
-**Statistical Evidence - Hypothesis Tests**
+## Statistical Evidence - Hypothesis Tests
  
 |Question 1|Is the mean rating of the American IPA (AIPA_mean) greater than the weighted mean of all styles combined (ALL_wmean)?|Question 2|Is the mean rating of the American IPA (AIPA_mean) greater than the mean of the highest rated beer - American Wild Ale? (HIGH_mean)|
 |:---|:---|:---|:---|

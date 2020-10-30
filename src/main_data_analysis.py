@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import pandas_profiling
 
+
 def normal_EDA(file_path, data_title, file_type='csv', return_information='complex', header=0, names=[]):
     """Takes in a data fie and does typical exploratory data analysis including overview statistics, 
         null value reports, visualizations, and other useful info.
@@ -27,12 +28,12 @@ def normal_EDA(file_path, data_title, file_type='csv', return_information='compl
     if file_type != 'csv':
         print("normal_EDA only works with csv files currently. Support for other file types will be added in the future")
         return None
-    
+
     # Reading in the data depending on the file type
     # Base case
     df = pd.read_csv(file_path)
     # TODO: add functionality for other file types. > df = pd.read_[file_type](file_path)
-    
+
     print(f'Quick overview of {data_title} from {file_path}.')
     print(f'More extensive report has been saved to file.')
     # Interesting statistics about the data
@@ -181,5 +182,5 @@ if __name__ == '__main__':
     BA_state_df_agg.reset_index(inplace=True)
     BA_state_df_agg
     BA_state_df_agg.info()
-    BA_state_df_2 = BA_state_df.groupby('brewery_id').agg({'review_overall' : lambda x: round(x.mean(), 2), 'brewery_name' : lambda column: column.iloc[0], 'brewery_id' : [('review_count', 'count')]}).reset_index()
+    BA_state_df_2 = BA_state_df.groupby('brewery_id').agg({'review_overall': lambda x: round(x.mean(), 2), 'brewery_name' : lambda column: column.iloc[0], 'brewery_id' : [('review_count', 'count')]}).reset_index()
     BA_state_df_2.head(25)
