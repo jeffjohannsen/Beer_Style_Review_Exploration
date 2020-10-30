@@ -98,7 +98,15 @@ def normal_EDA(file_path, data_title, file_type='csv', return_information='compl
     print(' ')
     print('-------------------Building and saving a cool HTML report.-------------------------------------------------------------')
     print(' ')
+    
     # Fancy Stuff - Pandas Profile Report Generator
+    # WARNING: Breaks in my ipython. Works fine in Jupyter.
+    # TODO: Investigate below error message
+    # ipython error point and message:
+    # Summarize dataset:  67%|████████████████████████████████████████████████████████████████████▋                                  | 
+    # 18/27 [00:23<00:38,  4.32s/it, Calculate phi_k correlation]: 
+    # >>>>>> CommandLine Error: Option 'help-list' registered more than once!
+    # >>>>>> LLVM ERROR: inconsistency in registered CommandLine options
     pandas_profile = df.profile_report(title=data_title)
     pandas_profile.to_file(output_file=f'{data_title}.html')
 
