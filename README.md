@@ -66,12 +66,10 @@ At first glance the data is fairly well organized and mostly complete. The data 
 <br/><br/>
 
 # Data Analysis
-TODO - What methods did you use to analyze the data.
-Why were these methods appropriate? How did you select
-these methods? What other options did you have, and why
-did you pass them over.
 
-![Orignal Dataset](images/original_data.png)
+The focus of my exploration is on the beer style popularity and quality. Determining a measure of popularity was the top goal. Seeing the distribution of the ratings (quality) was the second priority and seeing if there was any correlation between the ratings (quality) was the third priority. 
+
+![Original Dataset](images/original_data.png)
 
 ![Ratings Histograms](images/ratings_histogram.png)
 
