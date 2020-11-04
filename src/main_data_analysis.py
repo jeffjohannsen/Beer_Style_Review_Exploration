@@ -5,6 +5,40 @@ import matplotlib.pyplot as plt
 import pandas_profiling
 
 
+def make_sample(original_data, sample_size, save_location):
+    """Takes a dataset from a csv file
+    and creates a random sample that is saved to file.
+
+    Args:
+        original_data (str): File path to original dataset.
+        sample_size (float): Fraction of original data to be saved as sample.
+        save_location (str): File path and name to save sample.
+
+    Returns:
+        None
+    """
+    df = pd.read_csv(original_data)
+    sample_df = df.sample(frac=sample_size)
+    sample_df.to_csv(save_location)
+    return None
+
+
+def ratings_hist(ax, data):
+    N, bins, patches = ax.hist(data.iloc[:, i],
+                                bins=[0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5],
+                                align='left', edgecolor='white', linewidth=1)
+    ax.set_title(data.columns[i])
+    ax.set_ylabel('Count of Ratings')
+    ax.set_xlabel('Rating 0 to 5')
+    ax.set_ylim(0, 700000)
+    ax.set_xticks([0, 1, 2, 3, 4, 5])
+    # bar coloring
+    colors = ['darkred', 'darkred', 'red', 'red', 'indianred', 'indianred',
+                'cornflowerblue', 'royalblue', 'blue', 'blue', 'darkblue', 'darkblue']
+    for j in range(len(patches)):
+        patches[j].set_facecolor(colors[j])
+
+
 def normal_EDA(file_path, data_title, file_type='csv', return_information='complex', header=0, names=[]):
     """Takes in a data fie and does typical exploratory data analysis including overview statistics, 
         null value reports, visualizations, and other useful info.
@@ -123,6 +157,8 @@ if __name__ == '__main__':
     plt.rcParams.update({'font.size': 16, 'font.family': 'sans'})
 
     df = pd.read_csv('../data/beer_reviews.csv')
+    
+    
     beer_advocate_df = df.copy()
 
     beer_advocate_df.sample(10)
@@ -144,6 +180,8 @@ if __name__ == '__main__':
 
     # pd.plotting.scatter_matrix(for_violin, alpha=0.2)
 
+
+    
     data = for_violin
     fig, ax = plt.subplots(1,5, figsize=(20,4))
 
