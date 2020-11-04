@@ -69,7 +69,13 @@ At first glance the data is fairly well organized and mostly complete. The data 
 
 The focus of my exploration is on the beer style popularity and quality. Determining a measure of popularity was the top goal. Seeing the distribution of the ratings (quality) was the second priority and seeing if there was any correlation between the ratings (quality) was the third priority. 
 
-![Original Dataset](images/original_data.png)
+|   brewery_id | brewery_name                         |   review_time |   review_overall |   review_aroma |   review_appearance | review_profilename   | beer_style                   |   review_palate |   review_taste | beer_name                               |   beer_abv |   beer_beerid |
+|-------------:|:-------------------------------------|--------------:|-----------------:|---------------:|--------------------:|:---------------------|:-----------------------------|----------------:|---------------:|:----------------------------------------|-----------:|--------------:|
+|        10001 | Hockley Valley Brewing Co.           |    1268863522 |              3.5 |            3.5 |                 3   | MattyV               | Irish Dry Stout              |             2   |            3   | Hockley Stout                           |        4.6 |         35859 |
+|          113 | Samuel Smith Old Brewery (Tadcaster) |    1209435786 |              4.5 |            4   |                 4.5 | bluegrassbrew        | English Porter               |             4   |            4   | Samuel Smith's, The Famous Taddy Porter |        5   |           572 |
+|          418 | Left Hand Brewing Company            |    1309720985 |              3.5 |            3.5 |                 3.5 | DrJay                | English India Pale Ale (IPA) |             3.5 |            3.5 | 400 Pound Monkey                        |        6.7 |         44706 |
+|          607 | High Point Brewing Company           |    1063648679 |              4.5 |            4.5 |                 4   | Dantes               | Märzen / Oktoberfest         |             4.5 |            4   | Ramstein Oktoberfest                    |        6   |         12718 |
+|          112 | North Coast Brewing Co.              |    1269408994 |              4   |            4   |                 3.5 | nickfl               | German Pilsener              |             3.5 |            3.5 | Scrimshaw Pilsner                       |        4.4 |           409 |
 
 ![Ratings Histograms](images/ratings_histogram.png)
 
@@ -113,29 +119,41 @@ The **Mean Overall Rating** grouped by the style of beer is used as an indicator
 <br/><br/>
 
 ## Statistical Evidence - Hypothesis Tests
- 
-|Question 1|Is the mean rating of the American IPA (AIPA_mean) greater than the weighted mean of all styles combined (ALL_wmean)?|Question 2|Is the mean rating of the American IPA (AIPA_mean) greater than the mean of the highest rated beer - American Wild Ale? (HIGH_mean)|
-|:---|:---|:---|:---|
-|Null Hypothesis H0|AIPA_mean <= ALL_wmean           |Null Hypothesis H0|AIPA_mean <= HIGH_mean|
-|Alternative Hypothesis HA|AIPA_mean > ALL_wmean   |Alternative Hypothesis HA|AIPA_mean > HIGH_mean        |
-|Significance Level (Alpha)|0.05  |Significance Level (Alpha)|0.05       |
-|Power| ~1.0                      |Power|   ~1.0                         | 
-|Data|American IPA overall reviews **n=117586** and Weighted Mean of All Styles=**3.82**|Data|American IPA overall reviews **n=117586** and American Wild Ale overall reviews **n=17794**|
-|Type of Test|One-Tailed One-Sample T-Test               |Type of Test|One-Tailed Mann-Whitner U                    |
-|Test Statistic|81.5              |Test Statistic|896725652.5                   |
-|P-Value| <0.001                 |P-Value| ~1.0                         |
-|Result|Reject the Null Hypothesis|Result|Fail to Reject the Hull Hypothesis|
-|Answer|There **is** statistically significant evidence that the mean rating of the American IPA is greater than the weighted mean of all styles combined.|Answer|There **is not** statistically significant evidence that the mean rating of the American IPA is greater than the mean rating of the highest rated beer style (American Wild Ale).|
+------
+### Question 1 - American IPA vs. Mean
+Is the mean rating of the American IPA greater than the weighted mean of all styles combined?
+&nbsp;
+#### **Null Hypothesis, H<sub>0</sub>: The mean rating of the American IPA is <= the Overall mean rating.**
+#### **Alternative Hypothesis, H<sub>a</sub>: The mean rating of the American IPA is > the Overall mean rating.**  
+&nbsp;
+|Significance Level (Alpha)|Type of Test|Data|Test Statistic|P-Value|Result|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|0.05|One-Tailed <br /> One-Sample T-Test|American IPA Overall Reviews **n=117586** <br /> Weighted Mean of All Styles **3.82**|81.5|<0.001|Reject the Null Hypothesis|  
+&nbsp;
+### There **is** statistically significant evidence that the mean rating of the American IPA is greater than the weighted mean of all styles combined.
 
+------
+&nbsp;
+
+### Question 2 - American IPA vs. American Wild Ale
+Is the mean rating of the American IPA greater than the mean of the highest rated beer the American Wild Ale?
+&nbsp;
+#### **Null Hypothesis, H<sub>0</sub>: The mean rating of the American IPA is <= the American Wild Ale mean rating.**
+#### **Alternative Hypothesis, H<sub>a</sub>: The mean rating of the American IPA is > the American Wild Ale mean rating.**  
+&nbsp;
+|Significance Level (Alpha)|Type of Test|Data|Test Statistic|P-Value|Result|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|0.05|One-Tailed <br /> Mann-Whitney U Test|American IPA Overall Reviews **n=117586** <br /> American Wild Ale Overall Reviews **n=17794**|896725652.5|~1.0|Fail to Reject the Null Hypothesis|
+&nbsp;
+### There **is not** statistically significant evidence that the mean rating of the American IPA is greater than the mean rating of the highest rated beer style (American Wild Ale).
+------
 <br><br/>
 
-## Conclusions:
+# Conclusions
 ### IPAs are the most popular style of craft beer.
 ### IPAs are not the highest quality style of beer but they are near the top.  
 
 ### When taken in combination with other factors such as cost and time requirements, the above conclusions can help craft beer brewers determine what styles of beer to provide for their customers.
-
-
 
 <br/><br/>
 
