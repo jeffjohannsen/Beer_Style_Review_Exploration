@@ -75,6 +75,8 @@ The focus of my exploration is on the beer style popularity and quality. Determi
 
 ![Correlation Matrix](images/original_data_corr_matrix.png)
 
+## [In Depth Analysis via Pandas Profiling](https://raw.githack.com/jeffjohannsen/Beer_Style_Review_Exploration/main/html/Beer_Style_Reviews_1pct_Sample.html)
+
 <br/><br/>
 
 # Answering Questions with the Data
