@@ -69,6 +69,8 @@ At first glance the data is fairly well organized and mostly complete. The data 
 
 The focus of my exploration is on the beer style popularity and quality. Determining a measure of popularity was the top goal. Seeing the distribution of the ratings (quality) was the second priority and seeing if there was any correlation between the ratings (quality) was the third priority. 
 
+### Original Dataset
+
 |   brewery_id | brewery_name                         |   review_time |   review_overall |   review_aroma |   review_appearance | review_profilename   | beer_style                   |   review_palate |   review_taste | beer_name                               |   beer_abv |   beer_beerid |
 |-------------:|:-------------------------------------|--------------:|-----------------:|---------------:|--------------------:|:---------------------|:-----------------------------|----------------:|---------------:|:----------------------------------------|-----------:|--------------:|
 |        10001 | Hockley Valley Brewing Co.           |    1268863522 |              3.5 |            3.5 |                 3   | MattyV               | Irish Dry Stout              |             2   |            3   | Hockley Stout                           |        4.6 |         35859 |
@@ -77,9 +79,20 @@ The focus of my exploration is on the beer style popularity and quality. Determi
 |          607 | High Point Brewing Company           |    1063648679 |              4.5 |            4.5 |                 4   | Dantes               | Märzen / Oktoberfest         |             4.5 |            4   | Ramstein Oktoberfest                    |        6   |         12718 |
 |          112 | North Coast Brewing Co.              |    1269408994 |              4   |            4   |                 3.5 | nickfl               | German Pilsener              |             3.5 |            3.5 | Scrimshaw Pilsner                       |        4.4 |           409 |
 
+&nbsp;
+
+## Beer Style Popularity Measured by Review Counts
+
+## Beer Style Quality Measured by Ratings
+
 ![Ratings Histograms](images/ratings_histogram.png)
 
-![Correlation Matrix](images/original_data_corr_matrix.png)
+## Correlations Between Overall Ratings and Sub-Ratings
+Unsurprisingly the sub-rating that correlates the most with the overall rating is taste. 
+
+![Correlation Matrix](images/correlation_matrix.png)
+
+&nbsp;
 
 ## [In Depth Analysis via Pandas Profiling](https://raw.githack.com/jeffjohannsen/Beer_Style_Review_Exploration/main/html/Beer_Style_Reviews_1pct_Sample.html)
 
@@ -120,7 +133,7 @@ The **Mean Overall Rating** grouped by the style of beer is used as an indicator
 
 ## Statistical Evidence - Hypothesis Tests
 ------
-### Question 1 - American IPA vs. Mean
+### American IPA vs. Mean
 Is the mean rating of the American IPA greater than the weighted mean of all styles combined?
 &nbsp;
 #### **Null Hypothesis, H<sub>0</sub>: The mean rating of the American IPA is <= the Overall mean rating.**
@@ -135,7 +148,7 @@ Is the mean rating of the American IPA greater than the weighted mean of all sty
 ------
 &nbsp;
 
-### Question 2 - American IPA vs. American Wild Ale
+### American IPA vs. American Wild Ale
 Is the mean rating of the American IPA greater than the mean of the highest rated beer the American Wild Ale?
 &nbsp;
 #### **Null Hypothesis, H<sub>0</sub>: The mean rating of the American IPA is <= the American Wild Ale mean rating.**
