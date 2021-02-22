@@ -8,7 +8,7 @@
     * [Motivation](#Motivation)
     * [The Data](#The-Data)
 * [Data Analysis](#Data-Analysis)
-* [Answering Questions with the Data](#Answering-Questions-with-the-Data)
+* [Hypothesis Testing](#Hypothesis-Testing)
 * [Main Takeaways and Further Work](#Main-Takeaways-and-Further-Work)
     * [Next Steps](#Next-Steps)
     * [What I Learned from this Project](#What-I-Learned-from-this-Project)
@@ -41,8 +41,22 @@ The data I am exploring is a sample of ~1.5 million beer reviews from the beer r
 "BeerAdvocate is the go-to beer resource for millions of consumers each month and the benchmark for beer reviews. Founded by the Alström Brothers in 1996, BeerAdvocate (commonly referred to as "BA") is one of the oldest and largest online communities of enthusiasts and professionals dedicated to supporting and promoting better beer." [Learn More](https://www.beeradvocate.com/about/)
 
 ### About the Data 
-At first glance the data is fairly well organized and mostly complete. The data counts and ratings features directly address my desire to explore beer style popularity and perceived quality. Unfortunately, the data is missing one feature (location) that would be useful during analysis. Another shortcoming of the dataset is a question regarding the independence of the data points. The data contains 13 features for each row and the original index serves as a 14th feature (review_id). Features include:
- 
+At first glance the data is fairly well organized and mostly complete. The data counts and ratings features directly address my desire to explore beer style popularity and perceived quality. Unfortunately, the data is missing one feature (location) that would be useful during analysis. Another shortcoming of the dataset is a question regarding the independence of the data points. The data contains 13 features for each row and the original index serves as a 14th feature (review_id).
+
+### Original Dataset
+
+|   brewery_id | brewery_name                         |   review_time |   review_overall |   review_aroma |   review_appearance | review_profilename   | beer_style                   |   review_palate |   review_taste | beer_name                               |   beer_abv |   beer_beerid |
+|-------------:|:-------------------------------------|--------------:|-----------------:|---------------:|--------------------:|:---------------------|:-----------------------------|----------------:|---------------:|:----------------------------------------|-----------:|--------------:|
+|        10001 | Hockley Valley Brewing Co.           |    1268863522 |              3.5 |            3.5 |                 3   | MattyV               | Irish Dry Stout              |             2   |            3   | Hockley Stout                           |        4.6 |         35859 |
+|          113 | Samuel Smith Old Brewery (Tadcaster) |    1209435786 |              4.5 |            4   |                 4.5 | bluegrassbrew        | English Porter               |             4   |            4   | Samuel Smith's, The Famous Taddy Porter |        5   |           572 |
+|          418 | Left Hand Brewing Company            |    1309720985 |              3.5 |            3.5 |                 3.5 | DrJay                | English India Pale Ale (IPA) |             3.5 |            3.5 | 400 Pound Monkey                        |        6.7 |         44706 |
+|          607 | High Point Brewing Company           |    1063648679 |              4.5 |            4.5 |                 4   | Dantes               | Märzen / Oktoberfest         |             4.5 |            4   | Ramstein Oktoberfest                    |        6   |         12718 |
+|          112 | North Coast Brewing Co.              |    1269408994 |              4   |            4   |                 3.5 | nickfl               | German Pilsener              |             3.5 |            3.5 | Scrimshaw Pilsner                       |        4.4 |           409 |
+
+<br/><br/>
+
+### Data Features
+
  |**Feature**|**Data Type** |**Notes**|
  |:---|:---|:---|
  |**Review Information**| |
@@ -67,21 +81,11 @@ At first glance the data is fairly well organized and mostly complete. The data 
 
 # Data Analysis
 
-The focus of my exploration is on the beer style popularity and quality. Determining a measure of popularity was the top goal. Seeing the distribution of the ratings (quality) was the second priority and seeing if there was any correlation between the ratings (quality) was the third priority. 
+The focus of my exploration was on the beer style popularity and quality. The average ratings were used to estimate quality and the amount of reviews were used to estimate popularity.
 
-### Original Dataset
-
-|   brewery_id | brewery_name                         |   review_time |   review_overall |   review_aroma |   review_appearance | review_profilename   | beer_style                   |   review_palate |   review_taste | beer_name                               |   beer_abv |   beer_beerid |
-|-------------:|:-------------------------------------|--------------:|-----------------:|---------------:|--------------------:|:---------------------|:-----------------------------|----------------:|---------------:|:----------------------------------------|-----------:|--------------:|
-|        10001 | Hockley Valley Brewing Co.           |    1268863522 |              3.5 |            3.5 |                 3   | MattyV               | Irish Dry Stout              |             2   |            3   | Hockley Stout                           |        4.6 |         35859 |
-|          113 | Samuel Smith Old Brewery (Tadcaster) |    1209435786 |              4.5 |            4   |                 4.5 | bluegrassbrew        | English Porter               |             4   |            4   | Samuel Smith's, The Famous Taddy Porter |        5   |           572 |
-|          418 | Left Hand Brewing Company            |    1309720985 |              3.5 |            3.5 |                 3.5 | DrJay                | English India Pale Ale (IPA) |             3.5 |            3.5 | 400 Pound Monkey                        |        6.7 |         44706 |
-|          607 | High Point Brewing Company           |    1063648679 |              4.5 |            4.5 |                 4   | Dantes               | Märzen / Oktoberfest         |             4.5 |            4   | Ramstein Oktoberfest                    |        6   |         12718 |
-|          112 | North Coast Brewing Co.              |    1269408994 |              4   |            4   |                 3.5 | nickfl               | German Pilsener              |             3.5 |            3.5 | Scrimshaw Pilsner                       |        4.4 |           409 |
+## [>>> EDA with Pandas Profiling <<<](https://raw.githack.com/jeffjohannsen/Beer_Style_Review_Exploration/main/html/Beer_Style_Reviews_1pct_Sample.html)
 
 &nbsp;
-
-## Beer Style Popularity Measured by Review Counts
 
 ## Beer Style Quality Measured by Ratings
 
@@ -93,12 +97,6 @@ Unsurprisingly the sub-rating that correlates the most with the overall rating i
 ![Correlation Matrix](images/correlation_matrix.png)
 
 &nbsp;
-
-## [In Depth Analysis via Pandas Profiling](https://raw.githack.com/jeffjohannsen/Beer_Style_Review_Exploration/main/html/Beer_Style_Reviews_1pct_Sample.html)
-
-<br/><br/>
-
-# Answering Questions with the Data
 
 ## Question 1:
 ## IPAs are in my experience the most popular style of craft beer. Does the data support my personal experience?
@@ -112,8 +110,6 @@ The **Review Count** grouped by the style of beer is used as an indicator of **P
 
 ## Question 2:
 ## Does being the most popular beer style indicate that IPAs are also the highest quality?
-
-## Visual Evidence 
 
 ### Top 10 Highest Rated Beer Styles
 * Data limited to styles with a minimum of 10000 reviews which left ~50% of all styles.
@@ -131,8 +127,8 @@ The **Mean Overall Rating** grouped by the style of beer is used as an indicator
 
 <br/><br/>
 
-## Statistical Evidence - Hypothesis Tests
-------
+# Hypothesis Testing
+
 ### American IPA vs. Mean
 Is the mean rating of the American IPA greater than the weighted mean of all styles combined?
 &nbsp;
@@ -159,7 +155,7 @@ Is the mean rating of the American IPA greater than the mean of the highest rate
 |0.05|One-Tailed <br /> Mann-Whitney U Test|American IPA Overall Reviews **n=117586** <br /> American Wild Ale Overall Reviews **n=17794**|896725652.5|~1.0|Fail to Reject the Null Hypothesis|
 &nbsp;
 ### There **is not** statistically significant evidence that the mean rating of the American IPA is greater than the mean rating of the highest rated beer style (American Wild Ale).
-------
+
 <br><br/>
 
 # Conclusions
